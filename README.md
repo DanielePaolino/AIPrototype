@@ -14,3 +14,13 @@ The fireman truck arrives at the emergency point and a fireman starts his missio
 
 https://user-images.githubusercontent.com/58630239/193834195-71f50290-461d-43e9-a954-c64a383dc250.mp4
 
+
+### Build
+Inside the AIPrototype/Build folder you can find the builds for Linux, Mac and Windows.
+
+Download the project and do the following instructions:
+
+Windows  --> Run the AIPrototype.exe <br/>
+Linux    --> Run the BuildLinux.x86_64 <br/>
+Mac      --> Launch the Mac.app folder (should be seen as an application) or Mac.app/MacOs/AiPrototype
+
