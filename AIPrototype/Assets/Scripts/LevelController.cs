@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class LevelController : MonoBehaviour
     public bool FiremenTruckHasArrivedAtEmergencyLocation { get; set; } = false;
     public bool FiremanIsReturnedToTruck { get; set; } = false;
 
+    private int speedUp = 6;
+
     [SerializeField] private GameObject fireEffectPrefab;
 
     private GameObject fireEffectSpawned;
@@ -19,6 +22,11 @@ public class LevelController : MonoBehaviour
     private void Awake()
     {
         Singleton();
+    }
+
+    private void Update()
+    {
+        CheckUserInput();
     }
 
     void Singleton()
@@ -40,6 +48,18 @@ public class LevelController : MonoBehaviour
     {
         fireEffectSpawned.GetComponent<ParticleSystem>().Stop();
         Destroy(fireEffectSpawned, 3f);
+    }
+
+    private void CheckUserInput()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene("SampleScene");
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
+        if (Input.GetKeyDown(KeyCode.S))
+            Time.timeScale = (Time.timeScale == speedUp) ? 1 : speedUp;
     }
 
 }
